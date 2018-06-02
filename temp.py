@@ -42,7 +42,7 @@ def fill_readme(sheet):
     with open('poc_info.txt') as f:
         for row in f:
             txtlist.append(row)
-    sheet.range('H10')options(transpose=True).value = txtlist
+    sheet.range('H10').options(transpose=True).value = txtlist
     print('POC info written to README')
     return
 
