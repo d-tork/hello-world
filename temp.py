@@ -41,7 +41,7 @@ def generate_data():
 # print(df.head())
 
 # define additional lists
-sheet_list = 'NCAA1 NCAA2 NCAA3 NIAA APFT MOAR'.split()
+sheet_list = 'NCAA1 NCAA2 NCAA3 GSAC-3 FIVB APFT MOAR'.split()
 file_list = 'East1 East2 East3 West1 West2 West3'.split()
 
 # Open Excel instance
