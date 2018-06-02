@@ -3,6 +3,7 @@ Builds the framework for the test template.
 """
 
 import xlwings as xw
+import os
 
 # Open Excel instance
 try:
@@ -44,7 +45,7 @@ def fill_wfa(sheet):
 for sht in list(xw.sheets)[1:-1]:
     fill_wfa(sht)
 
-wb.save('my_template.xlsx')
+wb.save(os.path.normpath('export/my_template.xlsx'))
 print('Saved:', wb.fullname)
 wb.close()
 
