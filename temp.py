@@ -42,7 +42,7 @@ def generate_data():
 
 # define additional lists
 sheet_list = 'NCAA1 NCAA2 NCAA3 GSAC-3 FIVB APFT MOAR'.split()
-file_list = 'East1 East2 East3 West1 West2 West3'.split()
+file_list = 'East1 East2 East3 West1 West2 West3 NORTH SOUTH SOC PAC DICTIC DRY'.split()
 
 # Open Excel instance
 try:
@@ -52,7 +52,8 @@ except IndexError:
 app1.screen_updating = True  # faster; don't show what it's doing
 
 # set file names to loop through (may or may not be created)
-fnames = [file_list[0]]
+fnames = [file_list[0]]  # single file name, for testing
+fnames = np.random.choice(file_list, 5, replace=False).tolist()
 
 for fname in fnames:
     fhand = copy2('my_template.xlsx', '{}.xlsx'.format(fname))
