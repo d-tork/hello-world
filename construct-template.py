@@ -10,7 +10,7 @@ try:
 except IndexError:
     app1 = xw.App(visible=False)
 
-wb = xw.Book('my_template.xlsx')
+wb = xw.Book()
 xw.sheets[0].name = 'README'
 xw.sheets.add(name='WFA')
 for i in range(2,8):
@@ -43,7 +43,7 @@ def fill_wfa(sheet):
 for sht in list(xw.sheets)[1:-1]:
     fill_wfa(sht)
 
-wb.save()
+wb.save('my_template.xlsx')
 print('Saved:', wb.fullname)
 wb.close()
 
