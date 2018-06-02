@@ -15,8 +15,8 @@ import os
 def generate_data():
     user_id = np.random.randint(123456, 999999, size=3000)
     
-    names = pd.read_excel('names.xlsx', squeeze=True)
-    countries = pd.read_excel('names.xlsx', 1, squeeze=True)
+    names = pd.read_csv('names.csv', squeeze=True)
+    countries = pd.read_csv('countries.csv', squeeze=True)
     
     rand_len = np.random.randint(100, 3000)
     
@@ -42,21 +42,29 @@ def generate_data():
 sheet_list = 'NCAA1 NCAA2 NCAA3 NIAA APFT MOAR'.split()
 file_list = 'East1 East2 East3 West1 West2 West3'.split()
 
-# app1 = xw.App(visible=False)
-app1 = xw.apps[0]
-fnames = file_list[3:]
-app1.screen_updating = False
+# Open Excel instance
+try:
+    app1 = xw.apps[0]
+except IndexError:
+    app1 = xw.App(visible=False)
+app1.screen_updating = True  # faster; don't show what it's doing
+
+# set file names to loop through (may or may not be created)
+fnames = [file_list[0]]
 
 for fname in fnames:
-    fname = copy2('my_template.xlsx', '{}.xlsx'.format(fname))
+    fhand = copy2('my_template.xlsx', '{}.xlsx'.format(fname))
+    fhand = os.path.abspath(fhand)
     sheets = np.random.choice(sheet_list, 4, replace=False).tolist()
-    # fname = os.path.abspath(fname)
 
-    # write to excel    
-    wb = xw.Book(fname)
-#    wbshts = [x for x in wb.sheets if 'WFA' in str(x)]
-    wbshts = [x for x in wb.sheets][1:-1]
-    for sheet, sht in zip(sheets, wbshts):
+    wb = xw.Book(fhand)
+    print('Opening:', fhand)
+    existing_sheets = list(wb.sheets)
+    # wfa_sheets = [x for x in wb.sheets if 'WFA' in str(x)]
+    wfa_sheets = existing_sheets[1:-1]
+
+    # write to excel
+    for sheet, sht in zip(sheets, wfa_sheets):
         df = generate_data()
         sht.name = sheet
         sht.range('A4').options(index=False, header=False).value = df
@@ -67,4 +75,4 @@ for fname in fnames:
     print('Saved:', wb.fullname)
     wb.close()
 
-# app1.quit()
+app1.quit()
