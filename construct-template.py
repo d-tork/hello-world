@@ -3,7 +3,6 @@ Builds the framework for the test template.
 """
 
 import xlwings as xw
-import pandas.DataFrame as DF
 import os
 
 # Open Excel instance
