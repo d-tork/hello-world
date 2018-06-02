@@ -74,6 +74,12 @@ for fname in fnames:
         print('Wrote: {} {} rows'.format(sht.name, len(df)))
     summary = wb.sheets('Player Summary')
     summary.range('Q2').options(transpose=True).value = sheets
+
+    # delete unused sheets
+    wfa_sheets = [x for x in wb.sheets if 'WFA' in str(x)]
+    for sht in wfa_sheets:
+        sht.delete()
+
     wb.save()
     print('Saved:', wb.fullname)
     wb.close()
