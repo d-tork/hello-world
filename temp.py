@@ -72,7 +72,7 @@ for fname in fnames:
     for sheet, sht in zip(sheets, wfa_sheets):
         df = generate_data()
         sht.name = sheet
-        sht.range('A4').options(index=False, header=False).value = df
+        sht.range('A5').options(index=False, header=False).value = df
         print('\tWrote: {} {} rows'.format(sht.name, len(df)))
     summary = wb.sheets('Player Summary')
     summary.range('Q2').options(transpose=True).value = sheets
