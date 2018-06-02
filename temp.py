@@ -37,6 +37,15 @@ def generate_data():
     df['sum'] = df['sum'].round(1)
     return df
 
+def fill_readme(sheet):
+    txtlist = []
+    with open('poc_info.txt') as f:
+        for row in f:
+            txtlist.append(row)
+    sheet.range('H10')options(transpose=True).value = txtlist
+    print('POC info written to README')
+    return
+
 
 # print(df.head())
 
@@ -76,6 +85,7 @@ for fname in fnames:
         print('\tWrote: {} {} rows'.format(sht.name, len(df)))
     summary = wb.sheets('Player Summary')
     summary.range('Q2').options(transpose=True).value = sheets
+    fill_readme(wb.sheets['README'])
 
     # delete unused sheets
     wfa_sheets = [x for x in wb.sheets if 'WFA' in str(x)]
