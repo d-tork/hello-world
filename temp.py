@@ -59,7 +59,7 @@ for fname in fnames:
     sheets = np.random.choice(sheet_list, rand_num, replace=False).tolist()
 
     wb = xw.Book(fhand)
-    print('Opening:', fhand)
+    print('Opening:', wb.fullname)
     existing_sheets = list(wb.sheets)
     # wfa_sheets = [x for x in wb.sheets if 'WFA' in str(x)]
     wfa_sheets = existing_sheets[1:-1]
