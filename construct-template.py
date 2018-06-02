@@ -56,6 +56,8 @@ fill_summary(wb.sheets['Player Summary'])
 for sht in list(xw.sheets)[1:-1]:
     fill_wfa(sht)
 
+if not os.path.exists('export'):
+    os.mkdir('export')
 wb.save(os.path.normpath('export/my_template.xlsx'))
 print('Saved:', wb.fullname)
 wb.close()
