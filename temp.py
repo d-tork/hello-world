@@ -17,14 +17,16 @@ def generate_data():
     
     names = pd.read_csv('names.csv', squeeze=True)
     countries = pd.read_csv('countries.csv', squeeze=True)
+    cats = ['cat1', 'cat2', 'cat3']
     
     rand_len = np.random.randint(100, 3000)
     
     df = pd.DataFrame(np.random.rand(rand_len, 4), columns=list('ABCD'))
     df['name'] = np.random.choice(names, size=rand_len)
     df['user_id'] = np.random.choice(user_id, size=rand_len)
+    df['category'] = np.random.choice(cats, size=rand_len)
     df['A_text'] = np.random.choice(countries, size=rand_len)
-    cols = ['name', 'user_id', 'A_text'] + list('ABCD')
+    cols = ['name', 'user_id', 'category', 'A_text'] + list('ABCD')
     df = df[cols]
     
     # Add up numbers
