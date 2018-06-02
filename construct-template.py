@@ -11,11 +11,12 @@ except IndexError:
     app1 = xw.App(visible=False)
 
 wb = xw.Book()
-xw.sheets[0].name = 'README'
-xw.sheets.add(name='WFA')
-for i in range(2,8):
+sht = wb.sheets[0]
+sht.name = 'README'
+for i in range(1,8):
     shtname = 'WFA({})'.format(i)
-    xw.sheets.add(name=shtname)
+    wb.sheets.add(name=shtname, after=sht)
+    sht = wb.sheets[shtname]
 xw.sheets.add(name='Player Summary')
 
 
