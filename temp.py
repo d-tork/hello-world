@@ -55,7 +55,8 @@ fnames = [file_list[0]]
 for fname in fnames:
     fhand = copy2('my_template.xlsx', '{}.xlsx'.format(fname))
     fhand = os.path.abspath(fhand)
-    sheets = np.random.choice(sheet_list, 4, replace=False).tolist()
+    rand_num = np.random.randint(1, 8)
+    sheets = np.random.choice(sheet_list, rand_num, replace=False).tolist()
 
     wb = xw.Book(fhand)
     print('Opening:', fhand)
