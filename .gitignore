@@ -1,6 +1,8 @@
 # Output files
 *.xlsx
 
+.DS_Store
+
 # Pycharm project folder
 .idea/
 
