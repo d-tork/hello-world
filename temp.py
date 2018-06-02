@@ -72,7 +72,7 @@ for fname in fnames:
         df = generate_data()
         sht.name = sheet
         sht.range('A4').options(index=False, header=False).value = df
-        print('Wrote: {} {} rows'.format(sht.name, len(df)))
+        print('\tWrote: {} {} rows'.format(sht.name, len(df)))
     summary = wb.sheets('Player Summary')
     summary.range('Q2').options(transpose=True).value = sheets
 
