@@ -49,7 +49,7 @@ try:
     app1 = xw.apps[0]
 except IndexError:
     app1 = xw.App(visible=False)
-app1.screen_updating = True  # faster; don't show what it's doing
+app1.screen_updating = False  # faster; don't show what it's doing
 
 # set file names to loop through (may or may not be created)
 fnames = [file_list[0]]  # single file name, for testing
@@ -60,6 +60,7 @@ for fname in fnames:
     fhand = os.path.abspath(fhand)
     rand_num = np.random.randint(1, 8)
     sheets = np.random.choice(sheet_list, rand_num, replace=False).tolist()
+    print('# of sheets: {}'.format(len(sheets)))
 
     wb = xw.Book(fhand)
     print('Opening:', wb.fullname)
