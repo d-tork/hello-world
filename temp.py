@@ -60,14 +60,13 @@ for fname in fnames:
     fhand = os.path.abspath(fhand)
     rand_num = np.random.randint(1, 8)
     sheets = np.random.choice(sheet_list, rand_num, replace=False).tolist()
-    print('# of sheets: {}'.format(len(sheets)))
 
     wb = xw.Book(fhand)
     print('Opening:', wb.fullname)
+    print('# of sheets: {}'.format(len(sheets)))
     existing_sheets = list(wb.sheets)
     # wfa_sheets = [x for x in wb.sheets if 'WFA' in str(x)]
     wfa_sheets = existing_sheets[1:-1]
-    print('# of existing sheets:', len(wfa_sheets))
 
     # write to excel
     for sheet, sht in zip(sheets, wfa_sheets):
