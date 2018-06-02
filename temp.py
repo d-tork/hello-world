@@ -90,3 +90,4 @@ for fname in fnames:
     wb.close()
 
 app1.quit()
+input('Press enter to close this window.')
