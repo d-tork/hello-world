@@ -3,6 +3,7 @@ Builds the framework for the test template.
 """
 
 import xlwings as xw
+import pandas.DataFrame as DF
 import os
 
 # Open Excel instance
@@ -42,6 +43,16 @@ def fill_wfa(sheet):
     sheet.range(col_rng).value = cols
     return
 
+
+def fill_summary(sheet):
+    head = ['Sheets', 'cat1', 'cat2', 'cat3']
+    rng1 = 'Q1:T1'
+
+    sheet.range(rng1).value = head
+    return
+
+# Fill worksheets
+fill_summary(wb.sheets['Player Summary'])
 for sht in list(xw.sheets)[1:-1]:
     fill_wfa(sht)
 
