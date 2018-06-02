@@ -67,6 +67,7 @@ for fname in fnames:
     existing_sheets = list(wb.sheets)
     # wfa_sheets = [x for x in wb.sheets if 'WFA' in str(x)]
     wfa_sheets = existing_sheets[1:-1]
+    print('# of existing sheets:', len(wfa_sheets))
 
     # write to excel
     for sheet, sht in zip(sheets, wfa_sheets):
