@@ -19,7 +19,7 @@ for i in range(1,8):
     shtname = 'WFA({})'.format(i)
     wb.sheets.add(name=shtname, after=sht)
     sht = wb.sheets[shtname]
-xw.sheets.add(name='Player Summary' after=sht)
+xw.sheets.add(name='Player Summary', after=sht)
 
 
 def fill_wfa(sheet):
