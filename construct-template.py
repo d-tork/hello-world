@@ -55,6 +55,9 @@ fill_summary(wb.sheets['Player Summary'])
 for sht in list(xw.sheets)[1:-1]:
     fill_wfa(sht)
 
+# Reset active sheet
+wb.sheets['README'].activate()
+
 if not os.path.exists('export'):
     os.mkdir('export')
 wb.save(os.path.normpath('export/my_template.xlsx'))
