@@ -39,7 +39,7 @@ def generate_data():
 # print(df.head())
 
 # define additional lists
-sheet_list = 'APRC1 APRC2 APRC3 JTFOA APTF MOAR'.split()
+sheet_list = 'NCAA1 NCAA2 NCAA3 NIAA APFT MOAR'.split()
 file_list = 'East1 East2 East3 West1 West2 West3'.split()
 
 # app1 = xw.App(visible=False)
