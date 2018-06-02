@@ -24,7 +24,7 @@ xw.sheets.add(name='Player Summary', after=sht)
 def fill_wfa(sheet):
     head1 = 'A1:Z1'
     head2 = 'A2:Z2'
-    col_rng = 'A3:I3'
+    col_rng = 'A4:I4'
 
     head1_txt = 'Beautiful header!'
     head2_txt = 'Lighter sub-header'

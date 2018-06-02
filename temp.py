@@ -82,6 +82,9 @@ for fname in fnames:
     for sht in wfa_sheets:
         sht.delete()
 
+    # Reset active
+    wfa_sheets[0].activate()
+
     wb.save()
     print('Saved:', wb.fullname)
     wb.close()
