@@ -1,0 +1,14 @@
+START: 2018-06-05 20:12:06.730463
+Opening: c:\users\danny torkelson\documents\hello-world\output\18q3 Roster - PALIC.xlsx
+# of sheets: 7
+	Wrote: FIVB 290 rows
+	Wrote: APFT 294 rows
+	Wrote: NCAA2 286 rows
+	Wrote: GSAC-3 276 rows
+	Wrote: MOAR 292 rows
+	Wrote: NCAA3 290 rows
+	Wrote: NCAA1 316 rows
+POC info written to README
+Saved: c:\users\danny torkelson\documents\hello-world\output\18q3 Roster - PALIC.xlsx
+FINISH: 2018-06-05 20:12:21.659993
+	in 0:00:14.92
