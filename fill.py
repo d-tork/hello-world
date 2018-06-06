@@ -37,9 +37,8 @@ def fill_readme(sheet):
 
 def write_workbook(org):
     outfile = os.path.join('output', '18q3 Roster - {}.xlsx'.format(org))
-    fhand = copy2('my_template.xlsx', outfile)
-    fhand = os.path.abspath(fhand)
-    wb = xw.Book(fhand)
+    copy2('my_template.xlsx', outfile)
+    wb = xw.Book(outfile)
     print('Opening:', wb.fullname)
 
     df1 = wfa.loc[wfa.org == org]
@@ -75,7 +74,7 @@ except IndexError:
     app1 = xw.App(visible=False)
 app1.screen_updating = True  # faster; don't show what it's doing
 
-for org in wfa_org_list:
+for org in wfa_org_list[2:3]:
     write_workbook(org)
 app1.quit()
 
