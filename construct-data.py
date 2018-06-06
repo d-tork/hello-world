@@ -1,7 +1,5 @@
 import pandas as pd
 import numpy as np
-import os
-import sys
 import string
 
 cols = ['player_id', 'player_name', 'category', 'org',

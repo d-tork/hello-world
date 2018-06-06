@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import xlwings as xw
 from shutil import copy2
 import os
