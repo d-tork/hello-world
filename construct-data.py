@@ -73,7 +73,7 @@ gen_file(sht_ct=4)
 
 df1 = pd.DataFrame()
 for i in range(29):
-    org_name = np.random.choice(org_list)
+    org_name = np.random.choice(org_list, replace=False)
     rand_ct = np.random.randint(50, 1000)
     df1 = df1.append(gen_df(org_name, rand_ct))
 df1.to_csv('18q3_full.csv', index=False)
