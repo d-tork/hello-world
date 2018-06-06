@@ -1,5 +1,7 @@
-# Output files
+# Output / log files
 *.xlsx
+log.txt
+output.txt
 
 .DS_Store
 
