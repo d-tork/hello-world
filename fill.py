@@ -12,7 +12,7 @@ def fill_readme(sheet):
         for row in f:
             txtlist.append(row)
     sheet.range('H10').options(transpose=True).value = txtlist
-    sheet.range('H:H').autofit()
+    sheet.range('H:H').autofit('c')
     print('POC info written to README')
     return
 
