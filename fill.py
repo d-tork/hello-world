@@ -5,8 +5,17 @@ from shutil import copy2
 import os
 from datetime import datetime
 
+logfile = 'log.txt'
+if os.path.exists(logfile):
+    append_write = 'a'
+else:
+    append_write = 'w'
+
 start = datetime.now()
-print('START:', start)
+startline = 'START: ' + str(start)
+print(startline)
+with open(logfile, append_write) as writer:
+    writer.write(startline)
 
 wfa = pd.read_csv('18q3_full.csv')
 wfa_org_list = wfa.org.unique()
@@ -71,5 +80,10 @@ for org in wfa_org_list:
 app1.quit()
 
 end = datetime.now()
-print('FINISH:', end)
-print('\tin {:.10}'.format(str(end-start)))
+endline = 'FINISH:' + str(end)
+durline = '\tin {:.10}'.format(str(end-start))
+print(endline)
+print(durline)
+with open(logfile, append_write) as writer:
+    writer.write(endline)
+    writer.write(durline)
