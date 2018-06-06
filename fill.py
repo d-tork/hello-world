@@ -74,7 +74,9 @@ except IndexError:
     app1 = xw.App(visible=False)
 app1.screen_updating = True  # faster; don't show what it's doing
 
-for org in wfa_org_list[2:3]:
+choice = input('Which index for org? : ')
+
+for org in wfa_org_list[choice:choice+1]:
     write_workbook(org)
 app1.quit()
 
