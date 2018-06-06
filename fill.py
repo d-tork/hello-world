@@ -66,7 +66,7 @@ except IndexError:
     app1 = xw.App(visible=False)
 app1.screen_updating = True  # faster; don't show what it's doing
 
-for org in wfa_org_list[]:
+for org in wfa_org_list:
     write_workbook(org)
 app1.quit()
 
