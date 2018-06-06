@@ -87,4 +87,4 @@ print(endline)
 print(durline)
 with open(logfile, append_write) as writer:
     writer.write(endline + '\n')
-    writer.write(durline + '\n', '-'*50 + '\n')
+    writer.write(durline + '\n' + '-'*50 + '\n')
