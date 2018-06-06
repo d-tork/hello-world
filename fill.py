@@ -15,7 +15,7 @@ start = datetime.now()
 startline = 'START: ' + str(start)
 print(startline)
 with open(logfile, append_write) as writer:
-    writer.write(startline)
+    writer.write(startline, '\n')
 
 wfa = pd.read_csv('18q3_full.csv')
 wfa_org_list = wfa.org.unique()
@@ -84,5 +84,5 @@ durline = '\tin {:.10}'.format(str(end-start))
 print(endline)
 print(durline)
 with open(logfile, append_write) as writer:
-    writer.write(endline)
-    writer.write(durline)
+    writer.write(endline, '\n')
+    writer.write(durline, '\n', '-'*50, '\n')
