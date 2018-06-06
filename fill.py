@@ -3,6 +3,10 @@ import numpy as np
 import xlwings as xw
 from shutil import copy2
 import os
+from datetime import datetime
+
+start = datetime.now()
+print('START:', start)
 
 wfa = pd.read_csv('18q3_full.csv')
 wfa_org_list = wfa.org.unique()
@@ -57,12 +61,17 @@ def write_workbook(org):
 
 # Open Excel instance
 try:
-    app1 = xw.apps[0](visible=False)
+    app1 = xw.apps[0]
 except IndexError:
     app1 = xw.App(visible=False)
-app1.screen_updating = False  # faster; don't show what it's doing
+app1.screen_updating = True  # faster; don't show what it's doing
 
-for org in wfa_org_list[:3]:
-    write_workbook(org)
-
+#for org in wfa_org_list[:3]:
+#    write_workbook(org)
+rand_org = np.random.choice(wfa_org_list)
+write_workbook('PALIC')
 app1.quit()
+
+end = datetime.now()
+print('FINISH:', end)
+print('\tin {:.10}'.format(str(end-start)))
