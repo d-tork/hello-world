@@ -1,0 +1,36 @@
+Opening: c:\users\danny torkelson\documents\hello-world\DICTIC.xlsx
+# of sheets: 6
+	Wrote: FIVB 1081 rows
+	Wrote: NCAA2 2622 rows
+	Wrote: NCAA1 1552 rows
+	Wrote: NCAA3 2924 rows
+	Wrote: GSAC-3 1843 rows
+	Wrote: APFT 1464 rows
+Saved: c:\users\danny torkelson\documents\hello-world\DICTIC.xlsx
+Opening: c:\users\danny torkelson\documents\hello-world\PAC.xlsx
+# of sheets: 4
+	Wrote: FIVB 2965 rows
+	Wrote: APFT 1432 rows
+	Wrote: MOAR 1703 rows
+	Wrote: GSAC-3 1292 rows
+Saved: c:\users\danny torkelson\documents\hello-world\PAC.xlsx
+Opening: c:\users\danny torkelson\documents\hello-world\East2.xlsx
+# of sheets: 3
+	Wrote: NCAA1 539 rows
+	Wrote: FIVB 2098 rows
+	Wrote: GSAC-3 594 rows
+Saved: c:\users\danny torkelson\documents\hello-world\East2.xlsx
+Opening: c:\users\danny torkelson\documents\hello-world\DRY.xlsx
+# of sheets: 3
+	Wrote: NCAA3 1256 rows
+	Wrote: MOAR 1770 rows
+	Wrote: GSAC-3 1698 rows
+Saved: c:\users\danny torkelson\documents\hello-world\DRY.xlsx
+Opening: c:\users\danny torkelson\documents\hello-world\West2.xlsx
+# of sheets: 4
+	Wrote: GSAC-3 654 rows
+	Wrote: APFT 2130 rows
+	Wrote: NCAA3 1825 rows
+	Wrote: NCAA1 517 rows
+Saved: c:\users\danny torkelson\documents\hello-world\West2.xlsx
+Press enter to close this window.
