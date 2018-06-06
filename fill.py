@@ -66,10 +66,8 @@ except IndexError:
     app1 = xw.App(visible=False)
 app1.screen_updating = True  # faster; don't show what it's doing
 
-#for org in wfa_org_list[:3]:
-#    write_workbook(org)
-rand_org = np.random.choice(wfa_org_list)
-write_workbook('PALIC')
+for org in wfa_org_list[]:
+    write_workbook(org)
 app1.quit()
 
 end = datetime.now()
