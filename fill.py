@@ -35,7 +35,7 @@ def write_workbook(org):
         sht.range('A5').options(index=False, header=False).value = df2
         print('\tWrote: {} {} rows'.format(sht.name, len(df2)))
         with open(logfile, append_write) as writer:
-            writer.write('\t' + sheet + len(df2) + '\n')
+            writer.write('\t' + sheet + str(len(df2)) + '\n')
     summary = wb.sheets('Player Summary')
     summary.range('Q2').options(transpose=True).value = sht_list
     fill_readme(wb.sheets['README'])
