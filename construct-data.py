@@ -25,12 +25,16 @@ org_list = """East1 East2 East3 West1 West2 West3
 
 
 def gen_word(length=12):
+    """Generates a random sting of characters with length between 5 and max set
+    by user, default is 12.
+    """
     allchar = list(string.ascii_letters + string.punctuation)
     word = ''.join(np.random.choice(allchar, size=None) for x in range(np.random.randint(5, length)))
     return word
 
 
 def fill_cols(df, cols, row_ct, org):
+    """Filling in the dataframe, column by column."""
     names = pd.read_csv('names.csv', squeeze=True)
     countries = pd.read_csv('countries.csv', squeeze=True)
     cats = ['cat1', 'cat2', 'cat3']
@@ -53,12 +57,16 @@ def fill_cols(df, cols, row_ct, org):
 
 
 def gen_df(org, row_ct=200):
+    """Generates a full dataframe for a single member given a row count."""
     df = pd.DataFrame(columns=cols)
     df = fill_cols(df, cols, row_ct, org)
     return df
 
 
 def gen_file(sht_ct=1):
+    """Generates a full Excel file for a single random member with a given
+    number of worksheets.
+    """
     rand_org = np.random.choice(org_list)
     writer = pd.ExcelWriter('18Q3 Roster-{}.xlsx'.format(rand_org))
     for i in range(sht_ct):
@@ -68,9 +76,10 @@ def gen_file(sht_ct=1):
         df.to_excel(writer, sheet_name=sheet)
     writer.save()
 
-
+# Generate a random file
 gen_file(sht_ct=4)
 
+# Generate a full combined file
 df1 = pd.DataFrame()
 for i in range(29):
     org_name = np.random.choice(org_list, replace=False)
