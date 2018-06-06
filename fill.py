@@ -5,24 +5,6 @@ from shutil import copy2
 import os
 from datetime import datetime
 
-logfile = 'log.txt'
-if os.path.exists(logfile):
-    append_write = 'a'
-else:
-    append_write = 'w'
-
-start = datetime.now()
-startline = 'START: ' + str(start)
-print(startline)
-with open(logfile, append_write) as writer:
-    writer.write(startline + '\n')
-
-wfa = pd.read_csv('18q3_full.csv')
-wfa_org_list = wfa.org.unique()
-
-if not os.path.exists('output'):
-    os.mkdir('output')
-
 
 def fill_readme(sheet):
     txtlist = []
@@ -36,6 +18,8 @@ def fill_readme(sheet):
 
 
 def write_workbook(org):
+    with open(logfile, append_write) as writer:
+        writer.write(org + '\n')
     outfile = os.path.join('output', '18q3 Roster - {}.xlsx'.format(org))
     copy2('my_template.xlsx', outfile)
     wb = xw.Book(outfile)
@@ -50,6 +34,8 @@ def write_workbook(org):
         df2 = df1.loc[df1.sheet == sheet]
         sht.range('A5').options(index=False, header=False).value = df2
         print('\tWrote: {} {} rows'.format(sht.name, len(df2)))
+        with open(logfile, append_write) as writer:
+            writer.write('\t' + sheet + len(df2) + '\n')
     summary = wb.sheets('Player Summary')
     summary.range('Q2').options(transpose=True).value = sht_list
     fill_readme(wb.sheets['README'])
@@ -66,6 +52,26 @@ def write_workbook(org):
     print('Saved:', wb.fullname)
     wb.close()
 
+# BEGIN RUNNING
+# Create timestamp log
+logfile = 'log.txt'
+if os.path.exists(logfile):
+    append_write = 'a'
+else:
+    append_write = 'w'
+start = datetime.now()
+startline = 'START: ' + str(start)
+print(startline)
+with open(logfile, append_write) as writer:
+    writer.write(startline + '\n')
+
+# Read in source file
+wfa = pd.read_csv('18q3_full.csv')
+wfa_org_list = wfa.org.unique()
+
+# Check for output folder
+if not os.path.exists('output'):
+    os.mkdir('output')
 
 # Open Excel instance
 try:
@@ -74,17 +80,17 @@ except IndexError:
     app1 = xw.App(visible=False)
 app1.screen_updating = True  # faster; don't show what it's doing
 
-choice = int(input('Which index for org? : '))
+# choice = int(input('Which index for org? : '))
 
-for org in wfa_org_list[choice:choice+1]:
+for org in wfa_org_list:
     write_workbook(org)
 app1.quit()
 
 end = datetime.now()
 endline = 'FINISH:' + str(end)
 durline = '\tin {:.10}'.format(str(end-start))
-print(endline)
-print(durline)
 with open(logfile, append_write) as writer:
     writer.write(endline + '\n')
     writer.write(durline + '\n' + '-'*50 + '\n')
+print(endline)
+print(durline)
