@@ -96,7 +96,7 @@ Daniel Torkelson
 What are we doing to help in the deep/close/support zones?
 
 ## Simplified battle rhythm
-![](mermaid-diagram-20190912205804.svg)
+![](mermaid_NTC_chart.png)
 
 ## Orders production
 > ~~Does the CMOC push orders down to CATs directly?~~ 
