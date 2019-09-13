@@ -96,20 +96,7 @@ Daniel Torkelson
 What are we doing to help in the deep/close/support zones?
 
 ## Simplified battle rhythm
-```mermaid
-graph LR;
-	A(CA Sync) --> B(BDE IOWG)
-	B --> C(BDE TGT WG)
-	C --> D(BDE TGT board)
-	D --> E(BDE FRAGO)
-
-	B .->|output| B2[sync matrix]
-	C .->|output| C2[Task + purpose statements]
-
-	classDef className fill:pink,stroke:#FFFFFF,stroke-width:2px;
-	class B2,C2 className;
-
-```
+![](mermaid-diagram-20190912205804.svg)
 
 ## Orders production
 > ~~Does the CMOC push orders down to CATs directly?~~ 
